@@ -8,7 +8,6 @@ import android.os.Handler;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private static int TIME_OUT = 2000;
     private Handler handler = null;
     private Runnable runnable = null;
 
@@ -31,6 +30,7 @@ public class SplashActivity extends AppCompatActivity {
                 finish();
             }
         };
+        int TIME_OUT = 2000;
         handler.postDelayed(runnable, TIME_OUT);
     }
 
