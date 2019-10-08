@@ -2,6 +2,7 @@ package com.example.crm;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -49,15 +50,16 @@ public class LoginActivity extends AppCompatActivity {
         mBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (checkValidation()) {
-                    Log.e("user", "onClick: " + email);
-                    if (CommonMethod.isNetworkAvailable(LoginActivity.this)) {
-                        loginRetrofit2Api(email, password, "login");
-                    } else {
-                        CommonMethod.showAlert("Internet Connectivity Failure", LoginActivity.this);
-                    }
-
-                }
+//                if (checkValidation()) {
+//                    Log.e("user", "onClick: " + email);
+//                    if (CommonMethod.isNetworkAvailable(LoginActivity.this)) {
+//                        loginRetrofit2Api(email, password, "login");
+//                    } else {
+//                        CommonMethod.showAlert("Internet Connectivity Failure", LoginActivity.this);
+//                    }
+//
+//                }
+                startActivity(new Intent(LoginActivity.this,HomeActivity.class));
             }
         });
 
