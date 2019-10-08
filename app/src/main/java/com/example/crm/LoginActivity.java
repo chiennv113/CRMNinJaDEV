@@ -30,10 +30,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private List<Login> logins;
 
- 
-//abc
-
-    //sdsdsd
     String email;
     String password;
     private Handler AndroidNetworking;
