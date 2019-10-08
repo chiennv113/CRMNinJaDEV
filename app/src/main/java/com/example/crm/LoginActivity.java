@@ -116,4 +116,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
+    ///* Over here we are sending a POST request with two fields as POST request body params */
+    //@POST("/data/2.1")
+    //Call < T > postMovieDetails(@Field("userId") String userID, @Field("token") String token);
 }
