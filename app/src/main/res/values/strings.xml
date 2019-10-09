@@ -39,4 +39,11 @@
     <string name="title_home">ListCall</string>
     <string name="title_dashboard">AddCall</string>
     <string name="title_notifications">Notifications</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btnSeARCH">search</string>
+    <string name="STT">STT</string>
+    <string name="SDT">sdt</string>
+    <string name="tenKH">ten KH</string>
 </resources>

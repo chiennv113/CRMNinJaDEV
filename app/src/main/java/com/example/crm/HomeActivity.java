@@ -48,6 +48,8 @@ public class HomeActivity extends AppCompatActivity {
                         break;
 
 
+
+
                 }
 
                 return loadFragment(fragment);

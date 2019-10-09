@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="?attr/actionBarSize">
-    <FrameLayout
-        android:id="@+id/abc"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+<!--    <FrameLayout-->
+<!--        android:id="@+id/abc"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"/>-->
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
