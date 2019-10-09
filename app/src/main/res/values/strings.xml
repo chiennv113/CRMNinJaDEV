@@ -2,7 +2,7 @@
     <string name="app_name">CrmNinJa</string>
     <string name="loggin_user">UserName</string>
     <string name="loggin_pass">PassWord</string>
-    <string name="tvQuenMK">Quên mật khẩu</string>
+    <string name="tvQuenMK">Forgot Password</string>
     <string name="tvDky">Đăng ký</string>
     <string name="btn_login">Login</string>
     <string name="title_activity_main">MainActivity</string>
@@ -40,10 +40,17 @@
     <string name="title_dashboard">AddCall</string>
     <string name="title_notifications">Notifications</string>
 
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="btnSeARCH">search</string>
     <string name="STT">STT</string>
     <string name="SDT">sdt</string>
     <string name="tenKH">ten KH</string>
+=======
+    <string name="ninjapm">Ninja Phần Mềm</string>
+    <string name="btn_SignIn">Sign In</string>
+    <string name="btnSignUp">Sign Up</string>
+    <string name="statistical">Thống Kê</string>
+>>>>>>> f7760b6b666f2fef06cc0d1b93be3ae07d7d07c0
 </resources>

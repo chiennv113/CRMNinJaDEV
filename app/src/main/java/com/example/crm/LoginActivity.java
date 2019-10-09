@@ -2,7 +2,9 @@ package com.example.crm;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -10,7 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.crm.ModelLogin.Login;
+import com.example.crm.Model.ModelLogin.Login;
 import com.example.crm.Retrofit.ApiClient;
 import com.example.crm.Retrofit.ServiceRetrofit;
 import com.google.android.material.textfield.TextInputEditText;
@@ -36,6 +38,8 @@ public class LoginActivity extends AppCompatActivity {
     private Handler AndroidNetworking;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,21 +49,21 @@ public class LoginActivity extends AppCompatActivity {
         mEdtUser.setText("app@ninjateam.vn");
         logins = new ArrayList<>();
 
+
         service = ApiClient.getClient().create(ServiceRetrofit.class);
 
         mBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                if (checkValidation()) {
-//                    Log.e("user", "onClick: " + email);
-//                    if (CommonMethod.isNetworkAvailable(LoginActivity.this)) {
-//                        loginRetrofit2Api(email, password, "login");
-//                    } else {
-//                        CommonMethod.showAlert("Internet Connectivity Failure", LoginActivity.this);
-//                    }
-//
-//                }
-                startActivity(new Intent(LoginActivity.this,HomeActivity.class));
+                if (checkValidation()) {
+                    Log.e("user", "onClick: " + email);
+                    if (CommonMethod.isNetworkAvailable(LoginActivity.this)) {
+                        loginRetrofit2Api(email, password, "login");
+                    } else {
+                        CommonMethod.showAlert("Internet Connectivity Failure", LoginActivity.this);
+                    }
+
+                }
             }
         });
 
@@ -88,15 +92,23 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Login> call, Response<Login> response) {
                 Log.e("abc", "onResponse: " + response.body());
-                Login login1 = response.body();
+//                Login login1 = response.body();
                 logins.add(response.body());
 
                 Log.e("size", "onResponse: "+logins.size());
                 Log.e("abc", "onResponse: "+logins.get(0).getMessage());
+
+                if (response.body().getMessage().equals("Đăng nhập thành công")){
+                    startActivity(new Intent(LoginActivity.this,HomeActivity.class));
+                }
                 Log.e("cookie", "onResponse a: " + response.headers().toString());
                 String a = response.headers().get("Set-Cookie");
+
+
+
+
                 Log.e("coooo", "" + a);
-                String aaa = login1.getMessage();
+                String aaa = logins.get(0).getMessage();
                 Toast.makeText(LoginActivity.this, "" + aaa, Toast.LENGTH_SHORT).show();
             }
 

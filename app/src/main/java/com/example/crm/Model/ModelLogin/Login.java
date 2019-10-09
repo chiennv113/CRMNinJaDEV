@@ -1,6 +1,7 @@
 
-package com.example.crm.ModelLogin;
+package com.example.crm.Model.ModelLogin;
 
+import com.example.crm.Model.ModelLogin.Data;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
