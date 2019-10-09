@@ -1,5 +1,5 @@
 
-package com.example.crm.ModelLogin;
+package com.example.crm.Model.ModelLogin;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
