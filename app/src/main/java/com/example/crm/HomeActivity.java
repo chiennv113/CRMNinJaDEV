@@ -29,7 +29,7 @@ public class HomeActivity extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.nav_view);
 
         ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.container, new FragmentListCall());
+        ft.replace(R.id.abc, new FragmentListCall());
         ft.commit();
 
 
@@ -39,11 +39,11 @@ public class HomeActivity extends AppCompatActivity {
                 Fragment fragment = null;
 
                 switch (menuItem.getItemId()) {
-                    case R.id.navigation_home:
+                    case R.id.navListCall:
                         fragment = new FragmentListCall();
                         break;
 
-                    case R.id.navigation_dashboard:
+                    case R.id.navAddCall:
                         fragment = new Fragment_AddCall();
                         break;
 
@@ -60,7 +60,7 @@ public class HomeActivity extends AppCompatActivity {
                 if (fragment != null) {
                     getSupportFragmentManager()
                             .beginTransaction()
-                            .replace(R.id.container, fragment)
+                            .replace(R.id.abc, fragment)
                             .commit();
                     return true;
                 }

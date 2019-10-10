@@ -1,6 +1,9 @@
 package com.example.crm;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.crm.Fragment.FragmentListCall;
 import com.example.crm.Model.ModelLogin.Login;
 import com.example.crm.Retrofit.ApiClient;
 import com.example.crm.Retrofit.ServiceRetrofit;
@@ -33,11 +37,11 @@ public class LoginActivity extends AppCompatActivity {
 
     private List<Login> logins;
 
+    FragmentTransaction transaction;
+
     String email;
     String password;
     private Handler AndroidNetworking;
-
-
 
 
     @Override
@@ -95,21 +99,27 @@ public class LoginActivity extends AppCompatActivity {
 //                Login login1 = response.body();
                 logins.add(response.body());
 
-                Log.e("size", "onResponse: "+logins.size());
-                Log.e("abc", "onResponse: "+logins.get(0).getMessage());
+                Log.e("size", "onResponse: " + logins.size());
+                Log.e("abc", "onResponse: " + logins.get(0).getMessage());
 
-                if (response.body().getMessage().equals("Đăng nhập thành công")){
-                    startActivity(new Intent(LoginActivity.this,HomeActivity.class));
+                if (response.body().getMessage().equals("Đăng nhập thành công")) {
+                    startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                 }
                 Log.e("cookie", "onResponse a: " + response.headers().toString());
                 String a = response.headers().get("Set-Cookie");
 
 
-
-
                 Log.e("coooo", "" + a);
                 String aaa = logins.get(0).getMessage();
                 Toast.makeText(LoginActivity.this, "" + aaa, Toast.LENGTH_SHORT).show();
+
+//                switchFragment(FragmentListCall.newInstance(a));
+
+//                Bundle bundle = new Bundle();
+//                bundle.putString("edttext", a);
+//// set Fragmentclass Arguments
+//                FragmentListCall fragobj = new FragmentListCall();
+//                fragobj.setArguments(bundle);
             }
 
             @Override
@@ -119,18 +129,30 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+
     private void initView() {
         mEdtUser = findViewById(R.id.edtUser);
         mEdtPass = findViewById(R.id.edtPass);
         mBtnLogin = findViewById(R.id.btn_login);
     }
 
+<<<<<<< HEAD
     public void SignUpbtn(View view) {
     }
 
     public void ForgotPassword(View view) {
     }
 
+=======
+    public void switchFragment(Fragment fragment) {
+        String name = fragment.getClass().getName();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        ft.replace(R.id.abc, fragment);
+        ft.addToBackStack(name);
+        ft.commit();
+    }
+>>>>>>> 50c807cbae48b3e63b0e8b694671be8e9f849149
 
     ///* Over here we are sending a POST request with two fields as POST request body params */
     //@POST("/data/2.1")

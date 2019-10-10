@@ -14,7 +14,7 @@ import com.example.crm.ViewHelper;
 
 public class Fragment_AddCall extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        View view = inflater.inflate(R.layout.fragment_listcall, container, false);
         return view;
     }
 }
