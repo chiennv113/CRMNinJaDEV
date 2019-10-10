@@ -31,13 +31,13 @@ public class FragmentListCall extends Fragment {
     private RecyclerView mRecycleviewRemind;
     private TextView mTvTest;
 
-    public static Fragment newInstance(String cookie) {
-        Fragment fragment = new FragmentListCall();
-        Bundle args = new Bundle();
-        args.putString(KEY_COOKIE, cookie);
-        fragment.setArguments(args);
-        return fragment;
-    }
+//    public static Fragment newInstance(String cookie) {
+//        Fragment fragment = new FragmentListCall();
+//        Bundle args = new Bundle();
+//        args.putString(KEY_COOKIE, cookie);
+//        fragment.setArguments(args);
+//        return fragment;
+//    }
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -51,14 +51,14 @@ public class FragmentListCall extends Fragment {
         return view;
     }
 
-//    @Override
-//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-//        super.onViewCreated(view, savedInstanceState);
-//        if (getArguments() != null) {
-//            String cookie = getArguments().getString(KEY_COOKIE);
-//            Log.e("hehehe", "" + cookie);
-//        }
-//    }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        if (getArguments() != null) {
+            String cookie = getArguments().getString(KEY_COOKIE);
+            Log.e("hehehe", "" + cookie);
+        }
+    }
 
     public void search(String info, String option, String cookie, String content) {
         final Search abc = new Search("0979090897", "search_customer");
@@ -68,6 +68,7 @@ public class FragmentListCall extends Fragment {
             @Override
             public void onResponse(Call<Search> call, Response<Search> response) {
                 Log.e("search", response.body().getFullname());
+                Log.e("search phone", response.body().getPhone1());
             }
 
             @Override

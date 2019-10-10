@@ -115,6 +115,7 @@ public class LoginActivity extends AppCompatActivity {
 
 //                switchFragment(FragmentListCall.newInstance(a));
 
+
 //                Bundle bundle = new Bundle();
 //                bundle.putString("edttext", a);
 //// set Fragmentclass Arguments
