@@ -8,12 +8,14 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.crm.LoginActivity;
 import com.example.crm.Model.ModelSearchCu.Search;
 import com.example.crm.R;
 import com.example.crm.Retrofit.ApiClient;
@@ -31,44 +33,46 @@ public class FragmentListCall extends Fragment {
     private RecyclerView mRecycleviewRemind;
     private TextView mTvTest;
 
-//    public static Fragment newInstance(String cookie) {
-//        Fragment fragment = new FragmentListCall();
-//        Bundle args = new Bundle();
-//        args.putString(KEY_COOKIE, cookie);
-//        fragment.setArguments(args);
-//        return fragment;
-//    }
+
+    public static Fragment newInstance(String cookie) {
+        Fragment fragment = new FragmentListCall();
+        Bundle args = new Bundle();
+        args.putString(KEY_COOKIE, cookie);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        initView(view);
-        service = ApiClient.getClient().create(ServiceRetrofit.class);
 //        String strtext = getArguments().getString("edttext");
 //        Log.e("abcde", "onCreateView: "+strtext);
 
-        search("0979090897","search_customer","crm_ninja=eyJpdiI6IkxNXC9Sblg2bHIyNTBRNlRGUHE2Z1dnPT0iLCJ2YWx1ZSI6ImJaYmxGUWxmQjFXZjBrWkZyaXFxZzlMSGdJMjBRQ0lzbzVLSG5IbHMrcXZ5aVhyd2l1WUdkUjdhOE8xZTE1RFkiLCJtYWMiOiIxNWMwZDk1ZTA5NWQ0MThjZDBlNjZhNTA0ODg4NjM2YWVlMGRmNjQ4NjMwYjg5ZWM0MzEyMDhjNDhlMzFiMWZhIn0%3D; expires=Fri, 11-Oct-2019 04:11:41 GMT; Max-Age=86400; path=/; httponly","application/x-www-form-urlencoded");
+//        search("0979090897", "search_customer", "crm_ninja=eyJpdiI6IkxNXC9Sblg2bHIyNTBRNlRGUHE2Z1dnPT0iLCJ2YWx1ZSI6ImJaYmxGUWxmQjFXZjBrWkZyaXFxZzlMSGdJMjBRQ0lzbzVLSG5IbHMrcXZ5aVhyd2l1WUdkUjdhOE8xZTE1RFkiLCJtYWMiOiIxNWMwZDk1ZTA5NWQ0MThjZDBlNjZhNTA0ODg4NjM2YWVlMGRmNjQ4NjMwYjg5ZWM0MzEyMDhjNDhlMzFiMWZhIn0%3D; expires=Fri, 11-Oct-2019 04:11:41 GMT; Max-Age=86400; path=/; httponly", "application/x-www-form-urlencoded");
         return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        initView(view);
+        service = ApiClient.getClient().create(ServiceRetrofit.class);
         if (getArguments() != null) {
             String cookie = getArguments().getString(KEY_COOKIE);
-            Log.e("hehehe", "" + cookie);
+            search("0979090897", "search_customer", cookie, "application/x-www-form-urlencoded");
+
         }
+
+
     }
 
     public void search(String info, String option, String cookie, String content) {
-        final Search abc = new Search("0979090897", "search_customer");
 
         Call<Search> searchCall = service.search(info, option, cookie, content);
         searchCall.enqueue(new Callback<Search>() {
             @Override
             public void onResponse(Call<Search> call, Response<Search> response) {
-                Log.e("search", response.body().getFullname());
-                Log.e("search phone", response.body().getPhone1());
+                Toast.makeText(getContext(), ""+response.body().getFullname(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
