@@ -125,6 +125,12 @@ public class LoginActivity extends AppCompatActivity {
         mBtnLogin = findViewById(R.id.btn_login);
     }
 
+    public void SignUpbtn(View view) {
+    }
+
+    public void ForgotPassword(View view) {
+    }
+
 
     ///* Over here we are sending a POST request with two fields as POST request body params */
     //@POST("/data/2.1")

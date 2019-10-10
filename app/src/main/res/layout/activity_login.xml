@@ -4,24 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/night"
+    android:background="@drawable/bg"
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
-<!--    <TextView-->
-<!--        android:id="@+id/textView"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="16dp"-->
-<!--        android:layout_marginTop="32dp"-->
-<!--        android:layout_marginEnd="16dp"-->
-<!--        android:text="@string/ninjapm"-->
-<!--        android:textColor="@color/colorBackgroud"-->
-<!--        android:textSize="35sp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"-->
-<!--        tools:ignore="MissingConstraints" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="16dp"-->
+    <!--        android:layout_marginTop="32dp"-->
+    <!--        android:layout_marginEnd="16dp"-->
+    <!--        android:text="@string/ninjapm"-->
+    <!--        android:textColor="@color/colorBackgroud"-->
+    <!--        android:textSize="35sp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"-->
+    <!--        tools:ignore="MissingConstraints" />-->
 
     <ImageView
         android:id="@+id/imageView"
@@ -31,7 +32,7 @@
         android:layout_marginTop="176dp"
         android:layout_marginEnd="24dp"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/kp_logo_50"
+        android:src="@drawable/logo_ninja"
         app:layout_constraintEnd_toEndOf="parent"
 
         app:layout_constraintHorizontal_bias="0.498"
@@ -73,77 +74,135 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtPass">
 
         <Button
             android:id="@+id/btn_login"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn_login"
+            android:background="@drawable/custom_btn_login"
             android:text="@string/btn_SignIn"
-            android:textColor="@color/colorBackgroud">
+            android:textColor="@color/colorBackgroud" />
 
-        </Button>
-
-        <Button
-            android:id="@+id/sigup"
+        <TextView
+            android:id="@+id/tvQuenMk"
+            android:onClick="ForgotPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:background="@drawable/btn_login"
-            android:text="@string/btnSignUp"
-            android:textColor="@color/colorBackgroud"></Button>
+            android:layout_gravity="center_horizontal"
+            android:text="@string/tvQuenMK"
+            android:textColor="@color/colorBackgroud"
+            android:textSize="15sp"
+            tools:ignore="MissingConstraints" />
+
+        <!--            <Button-->
+        <!--                android:id="@+id/sigup"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginLeft="30dp"-->
+        <!--                android:background="@drawable/btn_login"-->
+        <!--                android:text="@string/btnSignUp"-->
+        <!--                android:textColor="@color/colorBackgroud"/>-->
     </LinearLayout>
 
-
-    <TextView
-        android:id="@+id/tvQuenMk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="24dp"
-        android:text="@string/tvQuenMK"
-        android:textColor="@color/colorBackgroud"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        tools:ignore="MissingConstraints" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/edtUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="92dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/shape_login_edt"
         android:drawableStart="@drawable/ic_account_circle_black_24dp"
         android:hint="@string/loggin_user"
         android:paddingStart="10dp"
-        android:textColor="@color/colorBackgroud"
+        android:textColor="@color/colorBgEdt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+    </com.google.android.material.textfield.TextInputEditText>
+
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/edtPass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:drawableStart="@drawable/ic_lock_black_24dp"
+
+        android:background="@drawable/shape_login_edt"
         android:hint="@string/loggin_pass"
         android:paddingLeft="10dp"
-        android:textColor="@color/colorBackgroud"
+        android:textColor="@color/colorBgEdt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtUser"
         tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:layout_width="235dp"
+        android:layout_height="28dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.709"
+        tools:ignore="MissingConstraints">
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/textView2"-->
+        <!--            android:layout_width="169dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="24dp"-->
+        <!--            android:layout_marginTop="64dp"-->
+        <!--            android:layout_marginEnd="24dp"-->
+        <!--            android:text="Don't have an account?"-->
+        <!--            android:textColor="@color/colorBackgroud"-->
+        <!--            android:textSize="15sp"-->
+
+        <!--            tools:ignore="MissingConstraints" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/sigup"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:layout_marginBottom="40dp"-->
+        <!--            android:text="Sign Up"-->
+        <!--            android:textColor="@color/colorBackgroud"-->
+        <!--            android:textSize="15sp"-->
+        <!--            android:textStyle="bold" />-->
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Don't have an account? "
+            android:textColor="@color/colorBackgroud"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/sigup"
+            android:onClick="SignUpbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Sign Up"
+            android:textColor="@color/colorBackgroud"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

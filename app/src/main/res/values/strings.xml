@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">CrmNinJa</string>
-    <string name="loggin_user">UserName</string>
-    <string name="loggin_pass">PassWord</string>
+    <string name="loggin_user">Username</string>
+    <string name="loggin_pass">Password</string>
     <string name="tvQuenMK">Forgot Password</string>
     <string name="tvDky">Đăng ký</string>
     <string name="btn_login">Login</string>
