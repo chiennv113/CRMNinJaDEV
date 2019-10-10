@@ -1,7 +1,6 @@
 package com.example.crm.Fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,18 +8,14 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.crm.LoginActivity;
 import com.example.crm.Model.ModelSearchCu.Search;
 import com.example.crm.R;
 import com.example.crm.Retrofit.ApiClient;
 import com.example.crm.Retrofit.ServiceRetrofit;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -45,10 +40,6 @@ public class FragmentListCall extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
-//        String strtext = getArguments().getString("edttext");
-//        Log.e("abcde", "onCreateView: "+strtext);
-
-//        search("0979090897", "search_customer", "crm_ninja=eyJpdiI6IkxNXC9Sblg2bHIyNTBRNlRGUHE2Z1dnPT0iLCJ2YWx1ZSI6ImJaYmxGUWxmQjFXZjBrWkZyaXFxZzlMSGdJMjBRQ0lzbzVLSG5IbHMrcXZ5aVhyd2l1WUdkUjdhOE8xZTE1RFkiLCJtYWMiOiIxNWMwZDk1ZTA5NWQ0MThjZDBlNjZhNTA0ODg4NjM2YWVlMGRmNjQ4NjMwYjg5ZWM0MzEyMDhjNDhlMzFiMWZhIn0%3D; expires=Fri, 11-Oct-2019 04:11:41 GMT; Max-Age=86400; path=/; httponly", "application/x-www-form-urlencoded");
         return view;
     }
 

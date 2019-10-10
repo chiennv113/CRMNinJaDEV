@@ -37,12 +37,8 @@ public class HomeActivity extends AppCompatActivity {
                         fragment = new Fragment_AddCall();
                         break;
                 }
-
-
                 return loadFragment(fragment);
             }
-
-
             private boolean loadFragment(Fragment fragment) {
                 if (fragment != null) {
                     getSupportFragmentManager()
@@ -53,9 +49,6 @@ public class HomeActivity extends AppCompatActivity {
                 }
                 return false;
             }
-
-
-
         });
 
     }

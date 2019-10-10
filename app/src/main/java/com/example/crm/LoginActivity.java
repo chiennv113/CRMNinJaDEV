@@ -34,13 +34,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private List<Login> logins;
 
-
-
-    FragmentTransaction transaction;
-
     String email;
     String password;
-    private Handler AndroidNetworking;
 
 
     @Override
@@ -96,7 +91,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Login> call, Response<Login> response) {
                 Log.e("abc", "onResponse: " + response.body());
-//                Login login1 = response.body();
                 logins.add(response.body());
 
                 Log.e("size", "onResponse: " + logins.size());
@@ -109,17 +103,13 @@ public class LoginActivity extends AppCompatActivity {
                     intent.putExtra("cookie", a);
                     startActivity(intent);
                 }
-
-
                 Log.e("coooo", "" + a);
                 String aaa = logins.get(0).getMessage();
                 Toast.makeText(LoginActivity.this, "" + aaa, Toast.LENGTH_SHORT).show();
 
             }
-
             @Override
             public void onFailure(Call<Login> call, Throwable t) {
-
             }
         });
     }
