@@ -14,11 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".StatisActivity"></activity>
         <activity
             android:name=".HomeActivity"
-            android:label="@string/title_activity_home">
-
-        </activity>
+            android:label="@string/title_activity_home"></activity>
         <activity android:name=".AddActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
