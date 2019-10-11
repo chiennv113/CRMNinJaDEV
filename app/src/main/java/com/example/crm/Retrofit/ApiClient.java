@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
     public static final String BASE_URL = "https://crm.phanmemninja.com";
-    private static Retrofit retrofit = null;
+    private static Retrofit retrofit;
 
     public static Retrofit getClient() {
         if (retrofit == null) {

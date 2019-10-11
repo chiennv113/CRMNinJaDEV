@@ -1,6 +1,5 @@
 package com.example.crm.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,15 +15,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.crm.HomeActivity;
-import com.example.crm.Model.CustomerFeel;
 import com.example.crm.Model.ModelSearchCu.Search;
 import com.example.crm.R;
 import com.example.crm.Retrofit.ApiClient;
 import com.example.crm.Retrofit.ServiceRetrofit;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,7 +31,6 @@ public class FragmentListCall extends Fragment {
     private ImageButton mBtnSearch;
     private RecyclerView mRecycleviewRemind;
     private TextView mTvTest;
-    private List<Search> searches = new ArrayList<>();
 
     public static Fragment newInstance(String cookie) {
         Fragment fragment = new FragmentListCall();
@@ -59,36 +52,41 @@ public class FragmentListCall extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         initView(view);
         service = ApiClient.getClient().create(ServiceRetrofit.class);
-        if (getArguments() != null) {
-            String cookie = getArguments().getString(KEY_COOKIE);
-            search("0979090897", "search_customer", cookie, "application/x-www-form-urlencoded");
 
-        }
-
-
-
+        mBtnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String info = mEdtInfoSearch.getText().toString().trim();
+                if (getArguments() != null) {
+                    String cookie = getArguments().getString(KEY_COOKIE);
+                    Search(info, "search_customer", cookie, "application/x-www-form-urlencoded");
+                }
+            }
+        });
     }
 
-    public void search(String info, String option, String cookie, String content) {
+    public void Search(String info, String option, String cookie, String content) {
 
         final Call<Search> searchCall = service.search(info, option, cookie, content);
         searchCall.enqueue(new Callback<Search>() {
             @Override
             public void onResponse(Call<Search> call, Response<Search> response) {
                 Toast.makeText(getContext(), "" + response.body().getFullname(), Toast.LENGTH_SHORT).show();
-//searches.addAll(response.body());
+
                 Log.e("customer_id", "" + response.body().getPhonecall().get(0).getCustomerId());
                 Log.e("customer_id", "" + response.body().getPhonecall().get(0).getContent());
                 int customer_id = response.body().getPhonecall().get(0).getCustomerId();
                 String content = response.body().getPhonecall().get(0).getContent();
-//                Fragment_AddCall.newInStance(customer_id,content);
+                String name = response.body().getFullname();
+                String email = response.body().getEmail();
 
                 Bundle bundle = new Bundle();
                 bundle.putInt("cus_id", customer_id); // Put anything what you want
                 bundle.putString("cont", content);
-                Fragment_AddCall fragment2 = new Fragment_AddCall();
+                bundle.putString("name",name);
+                bundle.putString("email",email);
+                Fragment_ResultSearch fragment2 = new Fragment_ResultSearch();
                 fragment2.setArguments(bundle);
-
                 getFragmentManager()
                         .beginTransaction()
                         .replace(R.id.abc, fragment2)

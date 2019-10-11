@@ -52,5 +52,7 @@
     <string name="btn_SignIn">Sign In</string>
     <string name="btnSignUp">Sign Up</string>
     <string name="statistical">Thống Kê</string>
+    <string name="frg_result_search_name">name</string>
+    <string name="frg_result_search">data</string>
     >>>>>>> f7760b6b666f2fef06cc0d1b93be3ae07d7d07c0
 </resources>
