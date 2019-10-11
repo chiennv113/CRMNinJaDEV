@@ -1,6 +1,8 @@
 package com.example.crm;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -61,4 +63,6 @@ public class HomeActivity extends AppCompatActivity {
         ft.addToBackStack(name);
         ft.commit();
     }
+
+
 }

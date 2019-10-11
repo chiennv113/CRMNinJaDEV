@@ -7,14 +7,12 @@ import com.google.gson.annotations.SerializedName;
 
 public class Search {
 
-    String infocheck;
-    String option;
-
-
-    public Search(String infocheck, String option){
-        this.infocheck = infocheck;
-        this.option = option;
-    }
+//    String infocheck;
+//    String option;
+//    public Search(String infocheck, String option){
+//        this.infocheck = infocheck;
+//        this.option = option;
+//    }
 
     @SerializedName("id")
     @Expose
