@@ -59,5 +59,11 @@
     <string name="dialog_btn_no">Hủy</string>
     <string name="hint_content_search">Nhập sđt hoặc email</string>
     <string name="act_static_socuocgoi">Số cuộc gọi</string>
+    <string name="ThemCG">Thêm cuộc gọi mới</string>
+    <string name="statis_KHcu">Khách hàng cũ</string>
+    <string name="act_static_KHmoi">Khách hàng mới</string>
+    <string name="act_static_Khcu">Khách hàng cũ</string>
+    <string name="sigup">Sign Up</string>
+    <string name="intro">Don\'t have an account?</string>
     >>>>>>> f7760b6b666f2fef06cc0d1b93be3ae07d7d07c0
 </resources>

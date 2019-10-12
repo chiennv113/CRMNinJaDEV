@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_margin="8dp"
-
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/item_card_view_remind"
@@ -13,16 +13,15 @@
         android:layout_gravity="center_horizontal">
 
         <RelativeLayout
-            android:background="@drawable/shape_cardview_remind"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            >
+            android:background="@drawable/shape_cardview_remind">
 
             <TextView
                 android:id="@+id/tenKH"
-                android:layout_marginLeft="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
                 android:text="@string/tenKH"
                 android:textSize="24sp"
                 android:textStyle="bold"
@@ -30,14 +29,14 @@
 
             <TextView
                 android:id="@+id/sdtKH"
-                android:layout_marginLeft="8dp"
-                android:textStyle="italic"
-                android:textSize="19sp"
-                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tenKH"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="5dp"
                 android:text="@string/SDT"
+                android:textSize="19sp"
+                android:textStyle="italic"
                 tools:ignore="RtlHardcoded" />
 
 
