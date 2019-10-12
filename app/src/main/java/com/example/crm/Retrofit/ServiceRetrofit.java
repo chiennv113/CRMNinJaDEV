@@ -29,7 +29,6 @@ public interface ServiceRetrofit {
     //https://crm.phanmemninja.com/api/phoneapi
 
 
-
     @POST("api/phoneapi")
     @FormUrlEncoded
     Call<List<ModelCustomeFeelNew>> getFeel(@Field("option") String option);

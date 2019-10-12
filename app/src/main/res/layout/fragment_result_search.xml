@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:padding="32dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,17 +9,19 @@
         android:id="@+id/ln_item"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
+
         <TextView
             android:id="@+id/tv_Rs_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/frg_result_search"></TextView>
+            android:hint="@string/frg_result_search" />
 
         <TextView
             android:id="@+id/tv_Rs_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/frg_result_search"></TextView>
+            android:hint="@string/frg_result_search" />
     </LinearLayout>
 </LinearLayout>

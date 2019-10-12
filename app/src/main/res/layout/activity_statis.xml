@@ -11,7 +11,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,27 +25,28 @@
                 android:id="@+id/card_view_booking"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
+                android:layout_marginEnd="8dp"
                 android:layout_weight="1"
                 app:cardCornerRadius="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    tools:ignore="UseCompoundDrawables">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="45dp"
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/pcolors"
-                        tools:ignore="VectorDrawableCompat" />
+                        tools:ignore="ContentDescription,VectorDrawableCompat" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:text="Số cuộc gọi" />
+                        android:text="@string/act_static_socuocgoi" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -53,7 +55,7 @@
                 android:id="@+id/card_view_cart"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
+                android:layout_marginEnd="8dp"
                 android:layout_weight="1"
                 app:cardCornerRadius="8dp">
 
@@ -69,7 +71,7 @@
                         android:layout_height="50dp"
                         android:layout_centerHorizontal="true"
                         android:src="@drawable/khachhang"
-                        tools:ignore="VectorDrawableCompat" />
+                        tools:ignore="ContentDescription,VectorDrawableCompat" />
 
                     <TextView
                         android:id="@+id/txt_cart_title"
@@ -78,9 +80,7 @@
                         android:layout_below="@+id/img_cart_icon"
                         android:layout_centerHorizontal="true"
                         android:text="Khách hàng cũ" />
-
                 </RelativeLayout>
-
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -246,9 +246,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:layout_weight="1"
-
                         android:text="CHANGE" />
-
                     <Button
                         android:id="@+id/btn_delete_booking"
                         android:layout_width="0dp"
@@ -256,7 +254,6 @@
                         android:layout_marginLeft="3dp"
                         android:layout_marginTop="4dp"
                         android:layout_weight="1"
-
                         android:text="DELETE" />
 
 

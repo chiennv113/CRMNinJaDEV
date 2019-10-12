@@ -48,9 +48,6 @@ public class LoginActivity extends AppCompatActivity {
         logins = new ArrayList<>();
 
 
-
-
-        service = ApiClient.getClient().create(ServiceRetrofit.class);
         mBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -85,9 +82,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void loginRetrofit2Api(final String email, final String password, String option) {
-        final Login login = new Login(email, password, "login");
-        Call<Login> call = service.createUser(login);
-        call.enqueue(new Callback<Login>() {
+        ApiClient.getInstance().createUser(new Login(email, password, option)).enqueue(new Callback<Login>() {
             @Override
             public void onResponse(Call<Login> call, Response<Login> response) {
                 Log.e("abc", "onResponse: " + response.body());
@@ -106,10 +101,11 @@ public class LoginActivity extends AppCompatActivity {
                 Log.e("coooo", "" + a);
                 String aaa = logins.get(0).getMessage();
                 Toast.makeText(LoginActivity.this, "" + aaa, Toast.LENGTH_SHORT).show();
-
             }
+
             @Override
             public void onFailure(Call<Login> call, Throwable t) {
+
             }
         });
     }
@@ -126,8 +122,4 @@ public class LoginActivity extends AppCompatActivity {
 
     public void ForgotPassword(View view) {
     }
-
-    ///* Over here we are sending a POST request with two fields as POST request body params */
-    //@POST("/data/2.1")
-    //Call < T > postMovieDetails(@Field("userId") String userID, @Field("token") String token);
 }

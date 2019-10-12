@@ -1,10 +1,12 @@
 package com.example.crm.Fragment;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,15 +15,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.example.crm.Model.ModelAdd;
 import com.example.crm.Model.ModelCustomeFeelNew;
 import com.example.crm.R;
-import com.example.crm.Retrofit.ServiceRetrofit;
+import com.example.crm.Retrofit.ApiClient;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -32,8 +31,12 @@ public class Fragment_ResultSearch extends Fragment {
     private LinearLayout mLnItem;
     private TextView mTvRsName;
     private TextView mTvRsEmail;
-    private ServiceRetrofit service;
+    ArrayList<String> arrayList = new ArrayList<>();
+    ArrayList<Integer> cus_id = new ArrayList<>();
+    private Dialog dialog;
 
+    private Button mBtnNo;
+    private Button mBtnOk;
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_result_search, container, false);
@@ -47,37 +50,50 @@ public class Fragment_ResultSearch extends Fragment {
 
         Bundle bundle = this.getArguments();
         if (bundle != null) {
-            String a = getArguments().getString("cont");
-            int b = getArguments().getInt("cus_id", 0);
+            final String cont = getArguments().getString("cont");
+            final int b = getArguments().getInt("cus_id", 0);
+            final String cookie = getArguments().getString("cookie");
+
+            arrayList.add(0, cont);
+            arrayList.add(1, cookie);
+            cus_id.add(0, b);
+
+
             String name = getArguments().getString("name");
             String email = getArguments().getString("email");
             mTvRsEmail.setText(email);
             mTvRsName.setText(name);
             mLnItem.setOnClickListener(new View.OnClickListener() {
+
                 @Override
                 public void onClick(View view) {
                     Toast.makeText(getContext(), "Onclick Linear", Toast.LENGTH_SHORT).show();
-                    getCustomerFeel("get_PhoneCallFeel");
+
+
+                    dialog = new Dialog(getContext());
+                    dialog.setContentView(R.layout.dialog_addcall);
+                    mBtnOk = dialog.findViewById(R.id.btn_ok);
+                    mBtnNo = dialog.findViewById(R.id.btn_no);
+                    dialog.show();
+
+                    mBtnOk.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            getCustomerFeel("get_PhoneCallFeel");
+                            dialog.dismiss();
+                        }
+                    });
+                    mBtnNo.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialog.dismiss();
+                        }
+                    });
+
 
                 }
             });
-            Log.e("pass", "onViewCreated: " + a + "   " + b);
 
-//            for (int i = 0;i<5;i++){
-//
-//            }
-//            retrofit2.Call<CustomerFeel> getFeel = service.getFeel("get_PhoneCallFeel", "application/x-www-form-urlencoded");
-//            getFeel.enqueue(new Callback<CustomerFeel>() {
-//                @Override
-//                public void onResponse(retrofit2.Call<CustomerFeel> call, Response<CustomerFeel> response) {
-//                    Log.e("feel", "" + response.body());
-//                }
-//
-//                @Override
-//                public void onFailure(Call<CustomerFeel> call, Throwable t) {
-//
-//                }
-//            });
 
         }
 
@@ -90,13 +106,11 @@ public class Fragment_ResultSearch extends Fragment {
     }
 
 
-    public void add() {
-        Call<ModelAdd> addCall = service.add("add_phone_call", 145, "khách cần mua",
-                "Rất hài lòng", "crm_ninja=eyJpdiI6InBncG4xVlwvRXJmekt3K3RrY3J2K3N3PT0iLCJ2YWx1ZSI6ImVWVllJa1U1RU4xQmpqV1lpcXdVT3BSdHB3clhScVpmRmdvTExJbVhRb3JEdmVoZmltUWE0bzZBdGZYODBoWGwiLCJtYWMiOiIyMmUwZmMyZmE1OTY5YjVkNjk0M2I0MGEyZmYyMTM1MzVjNTAxZmNjMjVkNTg3OTc4NzQzYWZhNzliZmQxNDRjIn0%3D; expires=Fri, 11-Oct-2019 07:15:05 GMT; Max-Age=86400; path=/; httponly", "application/x-www-form-urlencoded");
-        addCall.enqueue(new Callback<ModelAdd>() {
+    public void add(String option, int id, String content, String cus_feel, String cookie, String type) {
+        ApiClient.getInstance().add(option, id, content, cus_feel, cookie, type).enqueue(new Callback<ModelAdd>() {
             @Override
             public void onResponse(Call<ModelAdd> call, Response<ModelAdd> response) {
-                Log.e("add", "onResponse: " + response.body().getMessage());
+                Toast.makeText(getContext(), "" + response.body().getMessage(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -104,20 +118,27 @@ public class Fragment_ResultSearch extends Fragment {
 
             }
         });
+
+
     }
 
-    public void getCustomerFeel(String option) {
-        Call<List<ModelCustomeFeelNew>> getFeel = service.getFeel(option);
-        getFeel.enqueue(new Callback<List<ModelCustomeFeelNew>>() {
+    public void getCustomerFeel(final String option) {
+        ApiClient.getInstance().getFeel(option).enqueue(new Callback<List<ModelCustomeFeelNew>>() {
             @Override
             public void onResponse(Call<List<ModelCustomeFeelNew>> call, Response<List<ModelCustomeFeelNew>> response) {
-                Log.e("TAG", "onResponse: " + response.body().size());
+                Log.e("size", "onResponse: " + response.body().size());
                 if (response.isSuccessful() && response.body() != null) {
-                    Log.e("TAG", "onResponse: " + response.body().size());
-                    for (ModelCustomeFeelNew test : response.body()) {
-                        Log.e("TAG", "onResponse: " + test.getName());
+                    for (int i = 0; i < response.body().size(); i++) {
                     }
+                    int positonRandom = (int) Math.floor(Math.random() * response.body().size());
+
+                    Log.e("cus", "onResponse: " + cus_id.get(0));
+
+                    add("add_phone_call", cus_id.get(0), arrayList.get(0), response.body().get(positonRandom).getName(),
+                            arrayList.get(1), "application/x-www-form-urlencoded");
                 }
+
+
             }
 
             @Override
@@ -126,26 +147,5 @@ public class Fragment_ResultSearch extends Fragment {
             }
         });
     }
-
-//    public void getFeel(){
-//
-//        TestRetrofit.getInstance().test("get_PhoneCallFeel").enqueue(new Callback<List<TestModel>>() {
-//            @Override
-//            public void onResponse(Call<List<TestModel>> call, Response<List<TestModel>> response) {
-//                if (response.isSuccessful() && response.body() != null) {
-//                    Log.e("TAG", "onResponse: " + response.body().size());
-//                    for (TestModel test : response.body()) {
-//                        Log.e("TAG", "onResponse: " + test.getName());
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<List<TestModel>> call, Throwable t) {
-//
-//            }
-//        });
-//    }
-
 
 }

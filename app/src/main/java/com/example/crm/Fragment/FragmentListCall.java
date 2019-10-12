@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,12 +26,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class FragmentListCall extends Fragment {
-    private ServiceRetrofit service;
     private static final String KEY_COOKIE = "FragmentListCall.KEY_COOKIE";
     private EditText mEdtInfoSearch;
-    private ImageButton mBtnSearch;
+    private ImageView mBtnSearch;
     private RecyclerView mRecycleviewRemind;
-    private TextView mTvTest;
 
     public static Fragment newInstance(String cookie) {
         Fragment fragment = new FragmentListCall();
@@ -39,7 +38,6 @@ public class FragmentListCall extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
@@ -51,7 +49,7 @@ public class FragmentListCall extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initView(view);
-        service = ApiClient.getClient().create(ServiceRetrofit.class);
+        mEdtInfoSearch.setText("0979090897");
 
         mBtnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,10 +63,9 @@ public class FragmentListCall extends Fragment {
         });
     }
 
-    public void Search(String info, String option, String cookie, String content) {
+    public void Search(String info, String option, final String cookie, String content) {
 
-        final Call<Search> searchCall = service.search(info, option, cookie, content);
-        searchCall.enqueue(new Callback<Search>() {
+        ApiClient.getInstance().search(info, option, cookie, content).enqueue(new Callback<Search>() {
             @Override
             public void onResponse(Call<Search> call, Response<Search> response) {
                 Toast.makeText(getContext(), "" + response.body().getFullname(), Toast.LENGTH_SHORT).show();
@@ -81,10 +78,11 @@ public class FragmentListCall extends Fragment {
                 String email = response.body().getEmail();
 
                 Bundle bundle = new Bundle();
-                bundle.putInt("cus_id", customer_id); // Put anything what you want
+                bundle.putInt("cus_id", customer_id);
                 bundle.putString("cont", content);
-                bundle.putString("name",name);
-                bundle.putString("email",email);
+                bundle.putString("cookie", cookie);
+                bundle.putString("name", name);
+                bundle.putString("email", email);
                 Fragment_ResultSearch fragment2 = new Fragment_ResultSearch();
                 fragment2.setArguments(bundle);
                 getFragmentManager()
@@ -98,14 +96,12 @@ public class FragmentListCall extends Fragment {
 
             }
         });
-
     }
 
     private void initView(View view) {
         mEdtInfoSearch = view.findViewById(R.id.edtInfoSearch);
         mBtnSearch = view.findViewById(R.id.btnSearch);
         mRecycleviewRemind = view.findViewById(R.id.recycleview_remind);
-        mTvTest = view.findViewById(R.id.tvTest);
     }
 
 }
