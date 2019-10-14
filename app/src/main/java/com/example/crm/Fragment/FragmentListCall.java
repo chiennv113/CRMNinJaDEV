@@ -43,14 +43,13 @@ public class FragmentListCall extends Fragment {
     private static final String KEY_COOKIE = "FragmentListCall.KEY_COOKIE";
     private EditText mEdtInfoSearch;
     private ImageView imgViewSearch;
-    // private ImageView mBtnSearch;
+    private ImageView mBtnSearch;
     private RecyclerView mRecycleviewRemind;
 
 
     private static final String KEY_COO_KIE = "FragmentListCall.KEY_COOKIE";
-    private EditText mEdtInfoSearch;
-    private ImageView mBtnSearch;
-    private RecyclerView mRecycleviewRemind;
+
+
 
 
     public static Fragment newInstance(String cookie) {
@@ -65,7 +64,7 @@ public class FragmentListCall extends Fragment {
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
         initView(view);
-        service = ApiClient.getClient().create(ServiceRetrofit.class);
+//        service = ApiClient.getClient().create(ServiceRetrofit.class);
 
 
         //  imgViewSearch=view.findViewById(R.id.imgViewSearch);
@@ -86,7 +85,7 @@ public class FragmentListCall extends Fragment {
 //        String strtext = getArguments().getString("edttext");
 //        Log.e("abcde", "onCreateView: "+strtext);
 
-        search("0979090897", "search_customer", "crm_ninja=eyJpdiI6IkxNXC9Sblg2bHIyNTBRNlRGUHE2Z1dnPT0iLCJ2YWx1ZSI6ImJaYmxGUWxmQjFXZjBrWkZyaXFxZzlMSGdJMjBRQ0lzbzVLSG5IbHMrcXZ5aVhyd2l1WUdkUjdhOE8xZTE1RFkiLCJtYWMiOiIxNWMwZDk1ZTA5NWQ0MThjZDBlNjZhNTA0ODg4NjM2YWVlMGRmNjQ4NjMwYjg5ZWM0MzEyMDhjNDhlMzFiMWZhIn0%3D; expires=Fri, 11-Oct-2019 04:11:41 GMT; Max-Age=86400; path=/; httponly", "application/x-www-form-urlencoded");
+//        search("0979090897", "search_customer", "crm_ninja=eyJpdiI6IkxNXC9Sblg2bHIyNTBRNlRGUHE2Z1dnPT0iLCJ2YWx1ZSI6ImJaYmxGUWxmQjFXZjBrWkZyaXFxZzlMSGdJMjBRQ0lzbzVLSG5IbHMrcXZ5aVhyd2l1WUdkUjdhOE8xZTE1RFkiLCJtYWMiOiIxNWMwZDk1ZTA5NWQ0MThjZDBlNjZhNTA0ODg4NjM2YWVlMGRmNjQ4NjMwYjg5ZWM0MzEyMDhjNDhlMzFiMWZhIn0%3D; expires=Fri, 11-Oct-2019 04:11:41 GMT; Max-Age=86400; path=/; httponly", "application/x-www-form-urlencoded");
 
 
         return view;
@@ -157,8 +156,8 @@ public class FragmentListCall extends Fragment {
     }
 
     private void initView(View view) {
-        // mEdtInfoSearch = view.findViewById(R.id.edtInfoSearch);
-        //  mBtnSearch = view.findViewById(R.id.btnSearch);
+         mEdtInfoSearch = view.findViewById(R.id.edtInfoSearch);
+         mBtnSearch = view.findViewById(R.id.btnSearch);
         mRecycleviewRemind = view.findViewById(R.id.recycleview_remind);
 
 
@@ -169,4 +168,4 @@ public class FragmentListCall extends Fragment {
     }
 
 
-}
+

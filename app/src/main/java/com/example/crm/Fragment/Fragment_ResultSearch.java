@@ -1,6 +1,7 @@
 package com.example.crm.Fragment;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.example.crm.Model.ModelAdd;
@@ -67,28 +69,48 @@ public class Fragment_ResultSearch extends Fragment {
 
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getContext(), "Onclick Linear", Toast.LENGTH_SHORT).show();
-
-
-                    dialog = new Dialog(getContext());
-                    dialog.setContentView(R.layout.dialog_addcall);
-                    mBtnOk = dialog.findViewById(R.id.btn_ok);
-                    mBtnNo = dialog.findViewById(R.id.btn_no);
-                    dialog.show();
-
-                    mBtnOk.setOnClickListener(new View.OnClickListener() {
+//                    Toast.makeText(getContext(), "Onclick Linear", Toast.LENGTH_SHORT).show();
+//
+//
+//                    dialog = new Dialog(getContext());
+//                    dialog.setContentView(R.layout.dialog_addcall);
+//
+//                    mBtnOk = dialog.findViewById(R.id.btn_ok);
+//                    mBtnNo = dialog.findViewById(R.id.btn_no);
+//                    dialog.show();
+//
+//                    mBtnOk.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View view) {
+//                            getCustomerFeel("get_PhoneCallFeel");
+//                            dialog.dismiss();
+//                        }
+//                    });
+//                    mBtnNo.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View view) {
+//                            dialog.dismiss();
+//                        }Ninja
+//                    });
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                    builder.setTitle("CRM.Ninja");
+                    builder.setMessage("Bạn có muốn thêm cuộc gọi mới?");
+                    builder.setCancelable(false);
+                    builder.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
                         @Override
-                        public void onClick(View view) {
+                        public void onClick(DialogInterface dialogInterface, int i) {
                             getCustomerFeel("get_PhoneCallFeel");
-                            dialog.dismiss();
+                          dialog.dismiss();
                         }
                     });
-                    mBtnNo.setOnClickListener(new View.OnClickListener() {
+                    builder.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
                         @Override
-                        public void onClick(View view) {
-                            dialog.dismiss();
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
                         }
                     });
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
 
 
                 }
