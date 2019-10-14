@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -19,13 +18,14 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal"
-            android:weightSum="3"
-            tools:ignore="MissingConstraints">
+            tools:ignore="MissingConstraints"
+            android:layout_marginBottom="10dp">
 
             <EditText
                 android:id="@+id/edtInfoSearch"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:layout_weight="2"
                 android:paddingLeft="12dp"
                 android:background="@drawable/shape_search_btn"
@@ -33,17 +33,48 @@
                 android:textSize="24sp"
                 tools:ignore="MissingConstraints" />
 
+<!--            <ImageView-->
+<!--                android:id="@+id/btnSearch"-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:src="@drawable/ic_search_black_24dp"-->
+<!--                android:text="@string/btnSeARCH"-->
+<!--                tools:ignore="DuplicateIds,MissingConstraints,VectorDrawableCompat" />-->
+<!--=======-->
+<!--                android:layout_marginEnd="20dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:background="@drawable/search_layout"-->
+<!--                android:ems="10"-->
+<!--                android:hint="@string/hint_content_search"-->
+<!--                android:inputType="textPersonName"-->
+<!--                android:paddingBottom="10dp"-->
+<!--                android:paddingLeft="20dp"-->
+<!--                android:paddingRight="20dp"-->
+<!--                android:paddingTop="10dp"-->
+<!--                android:textColor="#999999"-->
+<!--                android:textSize="16sp"-->
+<!--                tools:ignore="Autofill"-->
+<!--                android:layout_marginBottom="15dp"/>-->
+
             <ImageView
                 android:id="@+id/btnSearch"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:src="@drawable/ic_search_black_24dp"
-                android:text="@string/btnSeARCH"
-                tools:ignore="MissingConstraints,VectorDrawableCompat" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="5dp"
+
+                android:src="@drawable/bsearch"
+                tools:ignore="ContentDescription,ObsoleteLayoutParam" />
+
+            <!--        -->
+>>>>>>> a28412658da352ed7c4536c4ea15bb7d3764494c
 
         </LinearLayout>
+<!--        -->
 
+
+<!--        -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -51,7 +82,8 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                tools:ignore="UselessParent">
 
                 <ScrollView
                     android:layout_width="match_parent"
@@ -60,12 +92,12 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recycleview_remind"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="wrap_content" />
                 </ScrollView>
 
 
-            </FrameLayout>
 
+            </FrameLayout>
         </LinearLayout>
     </LinearLayout>
 

@@ -52,5 +52,19 @@
     <string name="btn_SignIn">Sign In</string>
     <string name="btnSignUp">Sign Up</string>
     <string name="statistical">Thống Kê</string>
+    <string name="frg_result_search_name">name</string>
+    <string name="frg_result_search">data</string>
+    <string name="dialog_addCall">Bạn có muốn thêm cuộc gọi mới?</string>
+    <string name="dialog_btn_ok">Đồng ý</string>
+    <string name="dialog_btn_no">Hủy</string>
+    <string name="hint_content_search">Nhập sđt hoặc email</string>
+    <string name="act_static_socuocgoi">Số cuộc gọi</string>
+    <string name="ThemCG">Thêm cuộc gọi mới</string>
+    <string name="statis_KHcu">Khách hàng cũ</string>
+    <string name="act_static_KHmoi">Khách hàng mới</string>
+    <string name="act_static_Khcu">Khách hàng cũ</string>
+    <string name="sigup">Sign Up</string>
+    <string name="intro">Don\'t have an account?</string>
+>>>>>>> a28412658da352ed7c4536c4ea15bb7d3764494c
     >>>>>>> f7760b6b666f2fef06cc0d1b93be3ae07d7d07c0
 </resources>

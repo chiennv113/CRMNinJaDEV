@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
 
     <item
         android:id="@+id/navListCall"
@@ -9,15 +11,18 @@
     <item
         android:id="@+id/navAddCall"
         android:icon="@drawable/ic_add"
-        android:title="@string/title_dashboard" />
+        android:title="@string/title_dashboard"
+        android:color="@color/cardview_dark_background"/>
 
     <item
+
         android:id="@+id/navRemind"
         android:icon="@drawable/ic_notification"
         android:title="@string/title_notifications" />
     <item
-        android:id="@+id/navigation_notification"
+        android:id="@+id/navStatis"
         android:icon="@drawable/ic_equalizer"
         android:title="@string/statistical" />
+
 
 </menu>

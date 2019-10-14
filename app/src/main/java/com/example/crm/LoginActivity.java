@@ -2,12 +2,9 @@ package com.example.crm;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -37,11 +34,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private List<Login> logins;
 
-    FragmentTransaction transaction;
-
     String email;
     String password;
-    private Handler AndroidNetworking;
 
 
     @Override
@@ -53,8 +47,6 @@ public class LoginActivity extends AppCompatActivity {
         mEdtUser.setText("app@ninjateam.vn");
         logins = new ArrayList<>();
 
-
-        service = ApiClient.getClient().create(ServiceRetrofit.class);
 
         mBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,36 +82,25 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void loginRetrofit2Api(final String email, final String password, String option) {
-        final Login login = new Login(email, password, "login");
-        Call<Login> call = service.createUser(login);
-        call.enqueue(new Callback<Login>() {
+        ApiClient.getInstance().createUser(new Login(email, password, option)).enqueue(new Callback<Login>() {
             @Override
             public void onResponse(Call<Login> call, Response<Login> response) {
                 Log.e("abc", "onResponse: " + response.body());
-//                Login login1 = response.body();
                 logins.add(response.body());
 
                 Log.e("size", "onResponse: " + logins.size());
                 Log.e("abc", "onResponse: " + logins.get(0).getMessage());
 
-                if (response.body().getMessage().equals("Đăng nhập thành công")) {
-                    startActivity(new Intent(LoginActivity.this, HomeActivity.class));
-                }
                 Log.e("cookie", "onResponse a: " + response.headers().toString());
                 String a = response.headers().get("Set-Cookie");
-
-
+                if (response.body().getMessage().equals("Đăng nhập thành công")) {
+                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                    intent.putExtra("cookie", a);
+                    startActivity(intent);
+                }
                 Log.e("coooo", "" + a);
                 String aaa = logins.get(0).getMessage();
                 Toast.makeText(LoginActivity.this, "" + aaa, Toast.LENGTH_SHORT).show();
-
-//                switchFragment(FragmentListCall.newInstance(a));
-
-//                Bundle bundle = new Bundle();
-//                bundle.putString("edttext", a);
-//// set Fragmentclass Arguments
-//                FragmentListCall fragobj = new FragmentListCall();
-//                fragobj.setArguments(bundle);
             }
 
             @Override
@@ -136,12 +117,12 @@ public class LoginActivity extends AppCompatActivity {
         mBtnLogin = findViewById(R.id.btn_login);
     }
 
-
     public void SignUpbtn(View view) {
     }
 
     public void ForgotPassword(View view) {
     }
+
 
 
     public void switchFragment(Fragment fragment) {
@@ -157,4 +138,5 @@ public class LoginActivity extends AppCompatActivity {
     ///* Over here we are sending a POST request with two fields as POST request body params */
     //@POST("/data/2.1")
     //Call < T > postMovieDetails(@Field("userId") String userID, @Field("token") String token);
+
 }

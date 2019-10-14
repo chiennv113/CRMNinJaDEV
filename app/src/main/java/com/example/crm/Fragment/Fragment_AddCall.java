@@ -10,11 +10,22 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.crm.R;
-import com.example.crm.ViewHelper;
+import com.example.crm.Retrofit.ApiClient;
+import com.example.crm.Retrofit.ServiceRetrofit;
 
 public class Fragment_AddCall extends Fragment {
+
+
+
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_listcall, container, false);
+
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
     }
 }
