@@ -136,14 +136,14 @@ public class LoginActivity extends AppCompatActivity {
         mBtnLogin = findViewById(R.id.btn_login);
     }
 
-<<<<<<< HEAD
+
     public void SignUpbtn(View view) {
     }
 
     public void ForgotPassword(View view) {
     }
 
-=======
+
     public void switchFragment(Fragment fragment) {
         String name = fragment.getClass().getName();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -152,7 +152,7 @@ public class LoginActivity extends AppCompatActivity {
         ft.addToBackStack(name);
         ft.commit();
     }
->>>>>>> 50c807cbae48b3e63b0e8b694671be8e9f849149
+
 
     ///* Over here we are sending a POST request with two fields as POST request body params */
     //@POST("/data/2.1")

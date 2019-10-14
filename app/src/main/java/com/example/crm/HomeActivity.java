@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import com.example.crm.Fragment.FragmentListCall;
 import com.example.crm.Fragment.Fragment_AddCall;
+import com.example.crm.Fragment.Fragment_Remind;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
@@ -45,6 +46,9 @@ public class HomeActivity extends AppCompatActivity {
 
                     case R.id.navAddCall:
                         fragment = new Fragment_AddCall();
+                        break;
+                    case  R.id.navRemind:
+                        fragment=new Fragment_Remind();
                         break;
 
 

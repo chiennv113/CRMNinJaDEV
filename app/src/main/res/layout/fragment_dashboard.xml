@@ -17,7 +17,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:gravity="center"
             android:orientation="horizontal"
             android:weightSum="3"
@@ -28,15 +27,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
+                android:paddingLeft="12dp"
                 android:background="@drawable/shape_search_btn"
                 android:hint="search"
                 android:textSize="24sp"
                 tools:ignore="MissingConstraints" />
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/btnSearch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_weight="1"
                 android:src="@drawable/ic_search_black_24dp"
                 android:text="@string/btnSeARCH"
@@ -62,15 +62,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
                 </ScrollView>
-
-                <TextView
-                    android:id="@+id/tvTest"
-                    android:text="sdsdsd"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                </TextView>
-
 
 
             </FrameLayout>

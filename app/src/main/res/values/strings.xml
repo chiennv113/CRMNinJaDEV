@@ -38,7 +38,7 @@
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_home">ListCall</string>
     <string name="title_dashboard">AddCall</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_notifications">Remind</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -47,10 +47,10 @@
     <string name="STT">STT</string>
     <string name="SDT">sdt</string>
     <string name="tenKH">ten KH</string>
-=======
+    =======
     <string name="ninjapm">Ninja Phần Mềm</string>
     <string name="btn_SignIn">Sign In</string>
     <string name="btnSignUp">Sign Up</string>
     <string name="statistical">Thống Kê</string>
->>>>>>> f7760b6b666f2fef06cc0d1b93be3ae07d7d07c0
+    >>>>>>> f7760b6b666f2fef06cc0d1b93be3ae07d7d07c0
 </resources>
