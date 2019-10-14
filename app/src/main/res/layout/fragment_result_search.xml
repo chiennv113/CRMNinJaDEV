@@ -3,26 +3,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="32dp">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_margin="5dp">
 
-    <LinearLayout
-        android:id="@+id/ln_item"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:ignore="UselessParent">
-
-        <TextView
-            android:id="@+id/tv_Rs_name"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:padding="2dp"
+            android:id="@+id/ln_item"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/frg_result_search" />
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
 
-        <TextView
-            android:id="@+id/tv_Rs_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="@string/frg_result_search" />
-    </LinearLayout>
+            <TextView
+                android:layout_marginLeft="8dp"
+                android:id="@+id/tv_Rs_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/frg_result_search"
+                android:textColor="@color/colorBgEdt"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_Rs_email"
+                android:layout_marginLeft="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/frg_result_search"
+                android:textStyle="italic" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </LinearLayout>
