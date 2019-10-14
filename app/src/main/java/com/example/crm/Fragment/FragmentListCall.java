@@ -43,19 +43,13 @@ public class FragmentListCall extends Fragment {
     private static final String KEY_COOKIE = "FragmentListCall.KEY_COOKIE";
     private EditText mEdtInfoSearch;
     private ImageView imgViewSearch;
-<<<<<<< HEAD
-=======
+
     private ImageView mBtnSearch;
->>>>>>> e1d9cd3b64d6bcbf905a1b27e81bc7a5cc020029
     private RecyclerView mRecycleviewRemind;
 
 
     private static final String KEY_COO_KIE = "FragmentListCall.KEY_COOKIE";
-<<<<<<< HEAD
-    private ImageView mBtnSearch;
-=======
 
->>>>>>> e1d9cd3b64d6bcbf905a1b27e81bc7a5cc020029
 
 
 
@@ -71,33 +65,10 @@ public class FragmentListCall extends Fragment {
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
         initView(view);
-<<<<<<< HEAD
-=======
-//        service = ApiClient.getClient().create(ServiceRetrofit.class);
 
 
-        //  imgViewSearch=view.findViewById(R.id.imgViewSearch);
-        //  mEdtInfoSearch = view.findViewById(R.id.edtInfoSearch);
-//        imgViewSearch.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(getActivity(), "Tim kiemkiem", Toast.LENGTH_LONG ).show();
-//            }
-//        });
-//        mEdtInfoSearch.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(getActivity(), "Please long press the key", Toast.LENGTH_LONG ).show();
-//            }
-//        });
-
-//        String strtext = getArguments().getString("edttext");
-//        Log.e("abcde", "onCreateView: "+strtext);
-
-//        search("0979090897", "search_customer", "crm_ninja=eyJpdiI6IkxNXC9Sblg2bHIyNTBRNlRGUHE2Z1dnPT0iLCJ2YWx1ZSI6ImJaYmxGUWxmQjFXZjBrWkZyaXFxZzlMSGdJMjBRQ0lzbzVLSG5IbHMrcXZ5aVhyd2l1WUdkUjdhOE8xZTE1RFkiLCJtYWMiOiIxNWMwZDk1ZTA5NWQ0MThjZDBlNjZhNTA0ODg4NjM2YWVlMGRmNjQ4NjMwYjg5ZWM0MzEyMDhjNDhlMzFiMWZhIn0%3D; expires=Fri, 11-Oct-2019 04:11:41 GMT; Max-Age=86400; path=/; httponly", "application/x-www-form-urlencoded");
 
 
->>>>>>> e1d9cd3b64d6bcbf905a1b27e81bc7a5cc020029
         return view;
 
     }

@@ -3,12 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/container"
     android:layout_width="match_parent"
-<<<<<<< HEAD
     android:layout_height="match_parent">
-=======
-    android:layout_height="match_parent"
-   >
->>>>>>> e1d9cd3b64d6bcbf905a1b27e81bc7a5cc020029
+
 
 
     <FrameLayout
