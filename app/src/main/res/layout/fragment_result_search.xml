@@ -7,14 +7,16 @@
     android:orientation="vertical"
     android:padding="32dp">
     <androidx.cardview.widget.CardView
+        app:cardElevation="10dp"
+        app:cardCornerRadius="10dp"
         android:id="@+id/card_view"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="5dp">
 
         <LinearLayout
-            android:padding="2dp"
+            android:padding="10dp"
             android:id="@+id/ln_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

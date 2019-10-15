@@ -39,18 +39,12 @@ import retrofit2.Response;
 public class FragmentListCall extends Fragment {
 
 
-    private ServiceRetrofit service;
     private static final String KEY_COOKIE = "FragmentListCall.KEY_COOKIE";
     private EditText mEdtInfoSearch;
     private ImageView imgViewSearch;
 
     private ImageView mBtnSearch;
     private RecyclerView mRecycleviewRemind;
-
-
-    private static final String KEY_COO_KIE = "FragmentListCall.KEY_COOKIE";
-
-
 
 
     public static Fragment newInstance(String cookie) {
@@ -65,8 +59,6 @@ public class FragmentListCall extends Fragment {
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
         initView(view);
-
-
 
 
         return view;
@@ -118,6 +110,7 @@ public class FragmentListCall extends Fragment {
                 getFragmentManager()
                         .beginTransaction()
                         .replace(R.id.abc, fragment2)
+                        .addToBackStack("FragmentListCall")
                         .commit();
             }
 
@@ -128,16 +121,13 @@ public class FragmentListCall extends Fragment {
     }
 
     private void initView(View view) {
-         mEdtInfoSearch = view.findViewById(R.id.edtInfoSearch);
-         mBtnSearch = view.findViewById(R.id.btnSearch);
+        mEdtInfoSearch = view.findViewById(R.id.edtInfoSearch);
+        mBtnSearch = view.findViewById(R.id.btnSearch);
         mRecycleviewRemind = view.findViewById(R.id.recycleview_remind);
-
-
     }
 
 
-
-    }
+}
 
 
 
